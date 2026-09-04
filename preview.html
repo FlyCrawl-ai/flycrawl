@@ -1,3 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>flycrawl-ai/flycrawl: High-Performance Web Scraping & Markdown Extraction Engine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown-dark.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    body {
+      background-color: #0d1117;
+      color: #e6edf3;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .gh-header {
+      background-color: #010409;
+      border-bottom: 1px solid #21262d;
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .gh-repo-title {
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .gh-repo-title a {
+      color: #2f81f7;
+      text-decoration: none;
+    }
+    .gh-repo-title a:hover {
+      text-decoration: underline;
+    }
+    .gh-badge {
+      font-size: 12px;
+      padding: 2px 7px;
+      border-radius: 20px;
+      border: 1px solid #30363d;
+      color: #8b949e;
+      font-weight: 500;
+    }
+    .gh-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .gh-btn {
+      background: #21262d;
+      border: 1px solid #30363d;
+      color: #c9d1d9;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    .gh-btn:hover {
+      background: #30363d;
+    }
+    .gh-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 20px;
+    }
+    .gh-file-box {
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      background: #0d1117;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+    .gh-commit-header {
+      background: #161b22;
+      padding: 12px 16px;
+      border-bottom: 1px solid #30363d;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+    .gh-file-row {
+      padding: 10px 16px;
+      border-bottom: 1px solid #21262d;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      gap: 12px;
+    }
+    .gh-file-row:last-child {
+      border-bottom: none;
+    }
+    .gh-file-row svg {
+      fill: #8b949e;
+    }
+    .gh-file-name {
+      color: #e6edf3;
+      text-decoration: none;
+      flex: 1;
+    }
+    .gh-file-msg {
+      color: #8b949e;
+      font-size: 12px;
+    }
+    .gh-readme-box {
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      background: #0d1117;
+      overflow: hidden;
+    }
+    .gh-readme-header {
+      background: #161b22;
+      padding: 12px 16px;
+      border-bottom: 1px solid #30363d;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .markdown-body {
+      background-color: #0d1117 !important;
+      color: #e6edf3 !important;
+      padding: 32px 40px !important;
+      font-size: 15px !important;
+      line-height: 1.6 !important;
+    }
+    .markdown-body pre {
+      background-color: #161b22 !important;
+      border: 1px solid #30363d !important;
+    }
+    .markdown-body table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    .markdown-body table tr {
+      background-color: #0d1117;
+      border-top: 1px solid #30363d;
+    }
+    .markdown-body table tr:nth-child(2n) {
+      background-color: #161b22;
+    }
+    .markdown-body table th, .markdown-body table td {
+      border: 1px solid #30363d;
+      padding: 8px 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- GitHub Top Bar Simulation -->
+  <div class="gh-header">
+    <div class="gh-repo-title">
+      <svg height="20" viewBox="0 0 16 16" width="20" fill="#8b949e"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h6.5a.25.25 0 0 1 .25.25v2.5a.25.25 0 0 1-.25.25h-6.5a.25.25 0 0 1-.25-.25Z"></path></svg>
+      <a href="#">flycrawl-ai</a> / <strong><a href="#">flycrawl</a></strong>
+      <span class="gh-badge">Public</span>
+    </div>
+    <div class="gh-actions">
+      <div class="gh-btn">⭐ Star <span style="background:#30363d; padding:1px 6px; border-radius:10px;">142</span></div>
+      <div class="gh-btn">🍴 Fork <span style="background:#30363d; padding:1px 6px; border-radius:10px;">18</span></div>
+    </div>
+  </div>
+
+  <div class="gh-container">
+    <!-- Git File Tree Simulation -->
+    <div class="gh-file-box">
+      <div class="gh-commit-header">
+        <div><strong>FlyCrawl Core Team</strong> <span style="color:#8b949e">Enhance README with real platform UI screenshots and native SVG terminal demo</span></div>
+        <div style="color:#8b949e">Latest commit <code style="color:#2f81f7">4db1c82</code> · 15 minutes ago</div>
+      </div>
+      <div class="gh-file-row">
+        <svg width="16" height="16" viewBox="0 0 16 16"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg>
+        <span class="gh-file-name">assets</span>
+        <span class="gh-file-msg">Add real UI screenshots and native SVG terminal demo</span>
+      </div>
+      <div class="gh-file-row">
+        <svg width="16" height="16" viewBox="0 0 16 16"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg>
+        <span class="gh-file-name">mcp-server</span>
+        <span class="gh-file-msg">Official Model Context Protocol server for Claude & Cursor</span>
+      </div>
+      <div class="gh-file-row">
+        <svg width="16" height="16" viewBox="0 0 16 16"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg>
+        <span class="gh-file-name">sdks</span>
+        <span class="gh-file-msg">Official Python & TypeScript SDKs</span>
+      </div>
+      <div class="gh-file-row">
+        <svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.75v2.75c0 .138.112.25.25.25h2.75Z"></path></svg>
+        <span class="gh-file-name">LICENSE</span>
+        <span class="gh-file-msg">MIT License</span>
+      </div>
+      <div class="gh-file-row">
+        <svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.75v2.75c0 .138.112.25.25.25h2.75Z"></path></svg>
+        <span class="gh-file-name">README.md</span>
+        <span class="gh-file-msg">Initial release: FlyCrawl SDKs, MCP server, and Showcase</span>
+      </div>
+    </div>
+
+    <!-- GitHub Rendered README -->
+    <div class="gh-readme-box">
+      <div class="gh-readme-header">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="#8b949e"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.75v2.75c0 .138.112.25.25.25h2.75Z"></path></svg>
+        <span>README.md</span>
+      </div>
+      <article class="markdown-body" id="readme-content">
+        <!-- Rendered markdown inserted via JS -->
+      </article>
+    </div>
+  </div>
+
+  <script id="raw-markdown" type="text/plain">
 # 🔥 FlyCrawl
 
 <div align="center">
@@ -93,7 +309,8 @@ flowchart LR
     end
 
     subgraph OUTPUT["🤖 LLM & AI Pipelines"]
-        C1["Clean Markdown\n(Up to 70% Token Savings)"]
+        C1["Clean Markdown
+(Up to 70% Token Savings)"]
         C2["Structured JSON & Schema Validation"]
         C3["Native Claude Desktop & Cursor MCP"]
     end
@@ -208,7 +425,8 @@ async function run() {
   });
 
   console.log('Page Title:', result.metadata.title);
-  console.log('Markdown Content:\n', result.markdown);
+  console.log('Markdown Content:
+', result.markdown);
 }
 
 run();
@@ -255,3 +473,27 @@ This repository and all SDKs are distributed under the **MIT License**. See [LIC
 <div align="center">
   <sub>Built for the AI era by the FlyCrawl Core Team. <a href="https://flycrawl.net">flycrawl.net</a></sub>
 </div>
+
+</script>
+
+  <script>
+    mermaid.initialize({ startOnLoad: false, theme: 'dark' });
+    const rawMd = document.getElementById('raw-markdown').textContent;
+    const renderer = new marked.Renderer();
+    
+    // Custom renderer for mermaid codeblocks
+    const originalCode = renderer.code.bind(renderer);
+    renderer.code = function(token) {
+      if (token.lang === 'mermaid' || (typeof token === 'object' && token.lang === 'mermaid')) {
+        const text = typeof token === 'object' ? token.text : arguments[0];
+        return `<pre class="mermaid">${text}</pre>`;
+      }
+      return originalCode(token);
+    };
+
+    marked.use({ renderer });
+    document.getElementById('readme-content').innerHTML = marked.parse(rawMd);
+    mermaid.run();
+  </script>
+</body>
+</html>
