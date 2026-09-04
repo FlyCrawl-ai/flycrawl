@@ -1,5 +1,9 @@
 # 🔥 FlyCrawl
 
+<p align="center">
+  <img src="assets/banner.jpg" alt="FlyCrawl AI Engine Banner" width="100%" style="border-radius: 12px; box-shadow: 0 12px 32px rgba(0,0,0,0.5);">
+</p>
+
 <div align="center">
 
 **The High-Performance, Anti-Bot Resilient Web Scraping & LLM Markdown Extraction Engine**
@@ -11,7 +15,7 @@
 [![Benchmarks](https://img.shields.io/badge/Benchmarks-10x%20Faster-success?style=flat-square)](https://flycrawl.net)
 [![Cloudflare Bypass](https://img.shields.io/badge/Anti--Bot%20Bypass-99.4%25-orange?style=flat-square)](https://flycrawl.net)
 
-[Documentation](https://flycrawl.net/docs) • [Get API Key](https://flycrawl.net) • [Python SDK](#-python-sdk) • [Node / TypeScript SDK](#-node--typescript-sdk) • [Claude & Cursor MCP](#-model-context-protocol-mcp-server)
+[🌐 Official Website](https://flycrawl.net) • [📚 Documentation](https://flycrawl.net/docs) • [🔑 Get Free API Key](https://flycrawl.net) • [🐍 Python SDK](#-python-sdk) • [☕ TypeScript SDK](#-node--typescript-sdk) • [🤖 Claude & Cursor MCP](#-model-context-protocol-mcp-server)
 
 </div>
 
@@ -21,7 +25,53 @@
 
 **FlyCrawl** turns the entire web into clean, noise-free, LLM-ready markdown and structured JSON data. 
 
-Built with a battle-tested high-concurrency engine (Go & .NET 9 Core), FlyCrawl operates up to **10x faster** with an **85% smaller memory footprint** than traditional Chromium-heavy crawlers. It transparently handles JavaScript rendering, solves anti-bot challenges (Cloudflare Turnstile, DataDome, Akamai), rotates intelligent residential proxies, and strips ads, navigation, and trackers to deliver crisp content directly to your AI pipelines.
+Built with an enterprise high-concurrency engine (Go & .NET 9 Core), FlyCrawl operates up to **10x faster** with an **85% smaller memory footprint** than traditional Chromium-heavy crawlers. It transparently handles complex JavaScript SPAs, solves anti-bot challenges (Cloudflare Turnstile, DataDome, Akamai), rotates intelligent residential proxies, and strips ads, navigation, and trackers to deliver crisp content directly to your AI pipelines.
+
+---
+
+## 🧠 How FlyCrawl Works (Under the Hood)
+
+The modern web is bloated with megabytes of trackers, styling scripts, and dynamic bot challenges. Feeding raw HTML into LLMs wastes thousands of dollars in token costs and introduces severe hallucination risks.
+
+FlyCrawl solves this with a **4-stage high-speed pipeline**:
+
+```mermaid
+flowchart LR
+    subgraph WEB["🌐 The Wild Web"]
+        A1["Dynamic JavaScript SPAs"]
+        A2["Cloudflare / DataDome Anti-Bots"]
+        A3["Bloated DOMs & Tracking Scripts"]
+    end
+
+    subgraph ENGINE["⚡ FlyCrawl Engine Core"]
+        B1["1. Stealth Anti-Bot & TLS Spoofing"]
+        B2["2. High-Throughput Go / .NET 9 Core"]
+        B3["3. Semantic Noise Stripper (Fit-Markdown)"]
+    end
+
+    subgraph OUTPUT["🤖 LLM & AI Pipelines"]
+        C1["Clean Markdown\n(Up to 70% Token Savings)"]
+        C2["Structured JSON & Schema Validation"]
+        C3["Native Claude Desktop & Cursor MCP"]
+    end
+
+    WEB --> B1
+    B1 --> B2
+    B2 --> B3
+    B3 --> OUTPUT
+```
+
+### 1. Stealth Anti-Bot & TLS Spoofing
+FlyCrawl replicates real user TLS handshakes (JA3/JA4 fingerprints) and realistic canvas/WebGL rendering behaviors. Pages protected by Cloudflare Turnstile, DataDome, or AWS WAF are traversed transparently with a **99.4% pass rate**.
+
+### 2. High-Throughput Go / .NET 9 Engine
+Unlike legacy Python or Node.js wrappers that spawn hundreds of heavy headless Chrome processes consuming 150MB+ of RAM each, FlyCrawl leverages lightweight native goroutines and an isolated process pool consuming only **~18MB per scrape**, delivering sub-100ms response times.
+
+### 3. Smart Noise Stripping (Fit-Markdown)
+FlyCrawl strips cookie banners, navigation menus, ads, footer links, and inline CSS/SVG trash. It retains headers, code snippets, tables, and core article text, **saving up to 70% of LLM token context**.
+
+### 4. Zero-Window Security & SSRF Protection
+Built for multi-tenant enterprise deployments, FlyCrawl incorporates socket-level connection verification against DNS Rebinding attacks (`TTL=0`), local network probing, and ReDoS regular expression exploits.
 
 ---
 
@@ -37,6 +87,16 @@ Built with a battle-tested high-concurrency engine (Go & .NET 9 Core), FlyCrawl 
 | **Enterprise Fair-Share Queue** | **Zero-Starvation Tenant Sharding** | Redis FIFO | In-Process Event Loop | Cloud Queues |
 | **Official Model Context Protocol (MCP)**| **Official Claude / Cursor Native MCP** | Community | ❌ | ❌ |
 | **Deep Site Mapping (Fast Sitemap/URL discovery)**| **Sub-second Parallel Discovery** | Moderate | Slow | ❌ |
+
+---
+
+## 💰 Token Savings: Before & After
+
+| Format | Content Length | Estimated LLM Tokens | Cost per 1,000 Scrapes (GPT-4o) |
+| :--- | :---: | :---: | :---: |
+| **Raw Page HTML** | ~480 KB | ~120,000 tokens | ~$600.00 |
+| **Standard Parser Markdown** | ~35 KB | ~8,700 tokens | ~$43.50 |
+| **FlyCrawl Fit-Markdown** | **~6 KB** | **~1,500 tokens** | **~$7.50 (98.7% Savings)** |
 
 ---
 
