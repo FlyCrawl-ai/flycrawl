@@ -177,6 +177,31 @@ export class FlyCrawl {
       body: JSON.stringify(options),
     });
   }
+
+  /**
+   * Searches the live web and extracts clean page summaries.
+   */
+  async search(query: string, limit = 5): Promise<{ success: boolean; query: string; results: any[] }> {
+    return await this.request("/api/v1/search", {
+      method: "POST",
+      body: JSON.stringify({ query, limit }),
+    });
+  }
+
+  /**
+   * Scrapes multiple URLs in a single high-throughput parallel batch.
+   */
+  async batchScrape(urls: string[], options: Omit<ScrapeOptions, "url"> = {}): Promise<{ success: boolean; data: ScrapeResult[] }> {
+    return await this.request("/api/v1/batch/scrape", {
+      method: "POST",
+      body: JSON.stringify({
+        urls,
+        formats: options.formats || ["markdown"],
+        onlyMainContent: options.onlyMainContent ?? true,
+        waitFor: options.waitFor || 0,
+      }),
+    });
+  }
 }
 
 export default FlyCrawl;

@@ -80,6 +80,26 @@ class FlyCrawl:
         payload_data = data.get("data", data)
         return ScrapeResponse(**payload_data)
 
+    def batch_scrape(
+        self,
+        urls: List[str],
+        formats: Optional[List[str]] = None,
+        only_main_content: bool = True,
+        wait_for: int = 0
+    ) -> List[ScrapeResponse]:
+        """Scrapes multiple URLs concurrently in a single high-throughput batch."""
+        payload = {
+            "urls": urls,
+            "formats": formats or ["markdown"],
+            "onlyMainContent": only_main_content,
+            "waitFor": wait_for
+        }
+        res = self._client.post("/api/v1/batch/scrape", json=payload)
+        res.raise_for_status()
+        data = res.json()
+        results = data.get("data", [])
+        return [ScrapeResponse(**p) for p in results]
+
     def crawl(
         self,
         url: str,
@@ -197,6 +217,25 @@ class AsyncFlyCrawl:
         data = res.json()
         payload_data = data.get("data", data)
         return ScrapeResponse(**payload_data)
+
+    async def batch_scrape(
+        self,
+        urls: List[str],
+        formats: Optional[List[str]] = None,
+        only_main_content: bool = True,
+        wait_for: int = 0
+    ) -> List[ScrapeResponse]:
+        payload = {
+            "urls": urls,
+            "formats": formats or ["markdown"],
+            "onlyMainContent": only_main_content,
+            "waitFor": wait_for
+        }
+        res = await self._client.post("/api/v1/batch/scrape", json=payload)
+        res.raise_for_status()
+        data = res.json()
+        results = data.get("data", [])
+        return [ScrapeResponse(**p) for p in results]
 
     async def crawl(self, url: str, max_depth: int = 2, limit: int = 100) -> CrawlJobResponse:
         payload = {"url": url, "maxDepth": max_depth, "limit": limit}

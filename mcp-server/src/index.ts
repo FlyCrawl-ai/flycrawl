@@ -84,6 +84,29 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
           required: ["url"],
         },
       },
+      {
+        name: "flycrawl_extract",
+        description: "Extracts structured, typed JSON data from web pages based on a prompt or schema.",
+        inputSchema: {
+          type: "object",
+          properties: {
+            urls: {
+              type: "array",
+              items: { type: "string" },
+              description: "List of URLs to extract information from.",
+            },
+            prompt: {
+              type: "string",
+              description: "Description of what to extract.",
+            },
+            schema: {
+              type: "object",
+              description: "Optional JSON Schema definition for the extraction.",
+            },
+          },
+          required: ["urls"],
+        },
+      },
     ],
   };
 });
@@ -170,6 +193,31 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         return {
           isError: true,
           content: [{ type: "text", text: `Map API error: ${await response.text()}` }],
+        };
+      }
+
+      const resJson: any = await response.json();
+      return {
+        content: [{ type: "text", text: JSON.stringify(resJson, null, 2) }],
+      };
+    }
+
+    if (name === "flycrawl_extract") {
+      const { urls, prompt, schema } = args as { urls: string[]; prompt?: string; schema?: any };
+      const response = await fetch(`${baseUrl}/api/v1/extract`, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+          "User-Agent": "FlyCrawl-MCP/1.0.0",
+        },
+        body: JSON.stringify({ urls, prompt, schema }),
+      });
+
+      if (!response.ok) {
+        return {
+          isError: true,
+          content: [{ type: "text", text: `Extract API error: ${await response.text()}` }],
         };
       }
 
