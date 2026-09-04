@@ -1,0 +1,33 @@
+{
+  "name": "@flycrawl/sdk",
+  "version": "1.0.0",
+  "description": "Official Node.js & TypeScript SDK for FlyCrawl - High-Performance Web Scraping for AI",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "test": "vitest"
+  },
+  "keywords": [
+    "flycrawl",
+    "web-scraping",
+    "crawler",
+    "markdown",
+    "llm",
+    "ai",
+    "firecrawl"
+  ],
+  "author": "FlyCrawl Core Team <core@flycrawl.ai>",
+  "license": "MIT",
+  "homepage": "https://flycrawl.net",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flycrawl-ai/flycrawl.git",
+    "directory": "sdks/node"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.3.0"
+  }
+}

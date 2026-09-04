@@ -1,0 +1,34 @@
+{
+  "name": "@flycrawl/mcp-server",
+  "version": "1.0.0",
+  "description": "Model Context Protocol (MCP) server for FlyCrawl - Live web scraping and crawling for Claude Desktop & Cursor",
+  "bin": {
+    "flycrawl-mcp": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "flycrawl",
+    "web-scraping",
+    "claude",
+    "cursor-ai",
+    "llm-tools"
+  ],
+  "author": "FlyCrawl Core Team <core@flycrawl.ai>",
+  "license": "MIT",
+  "homepage": "https://flycrawl.net",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3"
+  }
+}
