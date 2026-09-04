@@ -1,23 +1,49 @@
 # 🔥 FlyCrawl
 
-<p align="center">
-  <img src="assets/banner.jpg" alt="FlyCrawl AI Engine Banner" width="100%" style="border-radius: 12px; box-shadow: 0 12px 32px rgba(0,0,0,0.5);">
-</p>
-
 <div align="center">
 
-**The High-Performance, Anti-Bot Resilient Web Scraping & LLM Markdown Extraction Engine**
+<h3>The High-Performance, Anti-Bot Resilient Web Scraping & LLM Markdown Extraction Engine</h3>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
-[![Python SDK](https://img.shields.io/badge/Python-3.9%2B-blue?style=flat-square&logo=python)](sdks/python)
-[![Node / TypeScript SDK](https://img.shields.io/badge/TypeScript-5.0%2B-3178C6?style=flat-square&logo=typescript)](sdks/node)
-[![MCP Protocol](https://img.shields.io/badge/Model_Context_Protocol-Ready-purple?style=flat-square)](mcp-server)
-[![Benchmarks](https://img.shields.io/badge/Benchmarks-10x%20Faster-success?style=flat-square)](https://flycrawl.net)
-[![Cloudflare Bypass](https://img.shields.io/badge/Anti--Bot%20Bypass-99.4%25-orange?style=flat-square)](https://flycrawl.net)
+<p align="center">
+  <a href="https://flycrawl.net"><img src="https://img.shields.io/badge/⚡_Live_Platform-flycrawl.net-00D1B2?style=for-the-badge&logo=fastapi&logoColor=white" alt="Live Platform"></a>
+  <a href="#-interactive-terminal-demo"><img src="https://img.shields.io/badge/🖥️_CLI_Demo-Live_Preview-7928CA?style=for-the-badge&logo=gnubash&logoColor=white" alt="CLI Demo"></a>
+  <a href="#-model-context-protocol-mcp"><img src="https://img.shields.io/badge/🤖_Claude_%26_Cursor-MCP_Server-FF0080?style=for-the-badge&logo=anthropic&logoColor=white" alt="MCP Server"></a>
+  <a href="#-benchmarks"><img src="https://img.shields.io/badge/📊_Benchmarks-10x_Faster-0070F3?style=for-the-badge&logo=speedtest&logoColor=white" alt="Benchmarks"></a>
+  <a href="https://flycrawl.net/docs"><img src="https://img.shields.io/badge/📖_API_Docs-v3.5-50E3C2?style=for-the-badge&logo=gitbook&logoColor=black" alt="Documentation"></a>
+</p>
 
-[🌐 Official Website](https://flycrawl.net) • [📚 Documentation](https://flycrawl.net/docs) • [🔑 Get Free API Key](https://flycrawl.net) • [🐍 Python SDK](#-python-sdk) • [☕ TypeScript SDK](#-node--typescript-sdk) • [🤖 Claude & Cursor MCP](#-model-context-protocol-mcp-server)
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-333333.svg?style=flat-square" alt="MIT License"></a>
+  <a href="sdks/python"><img src="https://img.shields.io/badge/Python-3.9%2B-blue?style=flat-square&logo=python" alt="Python SDK"></a>
+  <a href="sdks/node"><img src="https://img.shields.io/badge/TypeScript-5.0%2B-3178C6?style=flat-square&logo=typescript" alt="TypeScript SDK"></a>
+  <a href="mcp-server"><img src="https://img.shields.io/badge/MCP-Ready-purple?style=flat-square" alt="MCP Protocol"></a>
+  <a href="https://flycrawl.net"><img src="https://img.shields.io/badge/Anti--Bot%20Bypass-99.4%25-orange?style=flat-square" alt="Cloudflare Bypass"></a>
+  <a href="https://flycrawl.net"><img src="https://img.shields.io/badge/Latency-%3C_65ms-success?style=flat-square" alt="Latency"></a>
+</p>
 
 </div>
+
+---
+
+## 🖥️ Interactive Terminal Demo
+
+FlyCrawl transforms complex, JavaScript-rendered web pages into clean, LLM-ready markdown in milliseconds while bypassing aggressive anti-bot defenses:
+
+<p align="center">
+  <img src="assets/terminal_demo.svg" alt="FlyCrawl Terminal Output Demo" width="100%">
+</p>
+
+---
+
+## 🚀 The Live Web Platform & Playground
+
+FlyCrawl provides both an ultra-low latency REST API and a real-time developer visualizer for instant experimentation:
+
+<p align="center">
+  <a href="https://flycrawl.net">
+    <img src="assets/flycrawl_app_hero.png" alt="FlyCrawl Live Platform UI" width="100%" style="border-radius: 10px; border: 1px solid #30363d;">
+  </a>
+</p>
 
 ---
 
@@ -62,13 +88,13 @@ flowchart LR
 ```
 
 ### 1. Stealth Anti-Bot & TLS Spoofing
-FlyCrawl replicates real user TLS handshakes (JA3/JA4 fingerprints) and realistic canvas/WebGL rendering behaviors. Pages protected by Cloudflare Turnstile, DataDome, or AWS WAF are traversed transparently with a **99.4% pass rate**.
+Replicates real user TLS handshakes (JA3/JA4 fingerprints) and realistic canvas/WebGL rendering behaviors. Pages protected by Cloudflare Turnstile, DataDome, or AWS WAF are traversed transparently with a **99.4% pass rate**.
 
 ### 2. High-Throughput Go / .NET 9 Engine
 Unlike legacy Python or Node.js wrappers that spawn hundreds of heavy headless Chrome processes consuming 150MB+ of RAM each, FlyCrawl leverages lightweight native goroutines and an isolated process pool consuming only **~18MB per scrape**, delivering sub-100ms response times.
 
 ### 3. Smart Noise Stripping (Fit-Markdown)
-FlyCrawl strips cookie banners, navigation menus, ads, footer links, and inline CSS/SVG trash. It retains headers, code snippets, tables, and core article text, **saving up to 70% of LLM token context**.
+Strips cookie banners, navigation menus, ads, footer links, and inline CSS/SVG trash. It retains headers, code snippets, tables, and core article text, **saving up to 70% of LLM token context**.
 
 ### 4. Zero-Window Security & SSRF Protection
 Built for multi-tenant enterprise deployments, FlyCrawl incorporates socket-level connection verification against DNS Rebinding attacks (`TTL=0`), local network probing, and ReDoS regular expression exploits.
@@ -76,6 +102,10 @@ Built for multi-tenant enterprise deployments, FlyCrawl incorporates socket-leve
 ---
 
 ## 📊 Benchmark Comparison
+
+<p align="center">
+  <img src="assets/flycrawl_benchmarks.png" alt="FlyCrawl Benchmarks Table" width="100%" style="border-radius: 10px; border: 1px solid #30363d;">
+</p>
 
 | Feature / Metric | 🚀 **FlyCrawl** | **Firecrawl** | **Crawl4AI** | **Jina Reader** |
 | :--- | :---: | :---: | :---: | :---: |
@@ -90,7 +120,7 @@ Built for multi-tenant enterprise deployments, FlyCrawl incorporates socket-leve
 
 ---
 
-## 💰 Token Savings: Before & After
+## 💰 Token Economics: Before & After
 
 | Format | Content Length | Estimated LLM Tokens | Cost per 1,000 Scrapes (GPT-4o) |
 | :--- | :---: | :---: | :---: |
@@ -100,10 +130,9 @@ Built for multi-tenant enterprise deployments, FlyCrawl incorporates socket-leve
 
 ---
 
-## 📦 Quick Start
+## 📦 Quick Start & SDKs
 
 ### 1. cURL
-
 ```bash
 curl -X POST https://flycrawl.net/api/v1/scrape \
   -H "Authorization: Bearer YOUR_API_KEY" \
@@ -119,13 +148,10 @@ curl -X POST https://flycrawl.net/api/v1/scrape \
 
 ### 🐍 Python SDK
 
-Install the official Python client:
-
 ```bash
 pip install flycrawl-py
 ```
 
-#### Scrape a Single Page
 ```python
 from flycrawl import FlyCrawl
 
@@ -142,33 +168,9 @@ print(f"Title: {doc.metadata.title}")
 print(doc.markdown[:500])
 ```
 
-#### Asynchronous Full-Site Crawl
-```python
-import asyncio
-from flycrawl import AsyncFlyCrawl
-
-async def main():
-    async with AsyncFlyCrawl(api_key="fc_live_...") as client:
-        job = await client.crawl(
-            url="https://docs.example.com",
-            max_depth=3,
-            limit=50
-        )
-        print(f"Crawl job started: {job.id}")
-        
-        # Poll results until completion
-        results = await client.wait_for_crawl(job.id)
-        for page in results.data:
-            print(f"Crawled: {page.url} ({len(page.markdown)} chars)")
-
-asyncio.run(main())
-```
-
 ---
 
 ### ☕ Node / TypeScript SDK
-
-Install via npm:
 
 ```bash
 npm install @flycrawl/sdk
@@ -224,17 +226,6 @@ Add this to your `claude_desktop_config.json`:
 - `flycrawl_crawl`: Initiates a multi-page crawl of docs or articles.
 - `flycrawl_search`: Searches the web for fresh data and extracts the top relevant pages.
 - `flycrawl_map`: Maps out all reachable URLs in a domain under 2 seconds.
-
----
-
-## 🛡️ Enterprise Security & Hardening
-
-FlyCrawl is engineered from the ground up for mission-critical production environments:
-
-- **Socket-Level SSRF Guard**: Zero-window protection against DNS Rebinding (`TTL=0`) and Cloud metadata endpoint exploitation (`169.254.169.254`, loopback, internal CIDR blocks).
-- **Global ReDoS Shield**: Regular expressions bound by strict 2-second timeout guarantees across all parser pipelines.
-- **Fair-Share Tenant Scheduling**: Isolated virtual buckets prevent noisy neighbors or malicious API spammers from starving other workloads.
-- **Process Sandbox**: Subprocesses are isolated in bounded trees and terminated gracefully (`proc.Kill(entireProcessTree: true)`) on request cancellation to eliminate orphaned resource leaks.
 
 ---
 
