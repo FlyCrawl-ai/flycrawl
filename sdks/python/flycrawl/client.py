@@ -132,6 +132,30 @@ class FlyCrawl:
         res.raise_for_status()
         return res.json()
 
+    def extract(
+        self,
+        urls: List[str],
+        prompt: Optional[str] = None,
+        schema: Optional[Union[Dict[str, Any], type]] = None
+    ) -> Dict[str, Any]:
+        """Extracts structured JSON data matching a Pydantic model or JSON schema directly from web pages."""
+        json_schema = None
+        if schema is not None:
+            if hasattr(schema, "model_json_schema"):
+                json_schema = schema.model_json_schema()
+            elif isinstance(schema, dict):
+                json_schema = schema
+        
+        payload: Dict[str, Any] = {"urls": urls}
+        if prompt:
+            payload["prompt"] = prompt
+        if json_schema:
+            payload["schema"] = json_schema
+
+        res = self._client.post("/api/v1/extract", json=payload)
+        res.raise_for_status()
+        return res.json()
+
     def close(self):
         self._client.close()
 
@@ -184,6 +208,29 @@ class AsyncFlyCrawl:
         res = await self._client.get(f"/api/v1/crawl/status/{job_id}")
         res.raise_for_status()
         return CrawlStatusResponse(**res.json())
+
+    async def extract(
+        self,
+        urls: List[str],
+        prompt: Optional[str] = None,
+        schema: Optional[Union[Dict[str, Any], type]] = None
+    ) -> Dict[str, Any]:
+        json_schema = None
+        if schema is not None:
+            if hasattr(schema, "model_json_schema"):
+                json_schema = schema.model_json_schema()
+            elif isinstance(schema, dict):
+                json_schema = schema
+
+        payload: Dict[str, Any] = {"urls": urls}
+        if prompt:
+            payload["prompt"] = prompt
+        if json_schema:
+            payload["schema"] = json_schema
+
+        res = await self._client.post("/api/v1/extract", json=payload)
+        res.raise_for_status()
+        return res.json()
 
     async def close(self):
         await self._client.aclose()

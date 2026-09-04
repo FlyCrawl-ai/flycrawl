@@ -434,6 +434,32 @@ run();
 
 ---
 
+### 🧬 Structured Extraction (Pydantic & Zod Schemas)
+
+Extract strongly-typed entities, pricing matrices, product catalogs, or news feeds directly from any webpage without post-processing or prompt writing:
+
+```python
+from pydantic import BaseModel, Field
+from flycrawl import FlyCrawl
+
+class PricingTier(BaseModel):
+    plan_name: str = Field(description="Name of the plan")
+    price_per_month: float = Field(description="Monthly cost in USD")
+    features: list[str] = Field(description="List of key features included")
+
+client = FlyCrawl(api_key="fc_live_...")
+
+result = client.extract(
+    urls=["https://stripe.com/pricing"],
+    schema=PricingTier,
+    prompt="Extract all available subscription plans and their core features."
+)
+
+print(result)
+```
+
+---
+
 ## 🤖 Model Context Protocol (MCP) Server
 
 Connect FlyCrawl directly to **Claude Desktop**, **Cursor**, **Windsurf**, or any MCP-compatible AI workspace. Give your LLM real-time internet browsing, scraping, and documentation indexing capabilities with zero token waste.

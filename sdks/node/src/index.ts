@@ -167,6 +167,16 @@ export class FlyCrawl {
     });
     return res.links || [];
   }
+
+  /**
+   * Extracts structured JSON data matching a schema or prompt from web pages.
+   */
+  async extract<T = any>(options: { urls: string[]; prompt?: string; schema?: Record<string, any> }): Promise<T> {
+    return await this.request<T>("/api/v1/extract", {
+      method: "POST",
+      body: JSON.stringify(options),
+    });
+  }
 }
 
 export default FlyCrawl;
