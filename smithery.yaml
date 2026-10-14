@@ -1,0 +1,38 @@
+# Smithery Configuration for FlyCrawl MCP Server
+# https://smithery.ai/servers/ardekani-dev/flycrawl
+
+name: flycrawl
+description: Sub-second Web-to-Fit-Markdown extraction, recursive website crawling, site mapping, and AI web data scraping for Claude Desktop, Cursor IDE, Windsurf, and AI Agents.
+version: 1.0.0
+homepage: https://flycrawl.net
+repository: https://github.com/FlyCrawl-ai/flycrawl
+license: MIT
+
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      apiKey:
+        type: string
+        description: Your FlyCrawl API Key from https://flycrawl.net (Claim 100 Free Crawl Credits upon registration).
+    required: []
+  commandFunction:
+    - npx
+    - -y
+    - flycrawl-mcp
+  environment:
+    FLYCRAWL_API_KEY: "{{apiKey}}"
+    FLYCRAWL_API_URL: "https://flycrawl.net/api/v1"
+
+tools:
+  - name: flycrawl_scrape
+    description: Extract clean, LLM-ready Fit-Markdown, JSON, or links from any webpage in sub-350ms with 90%+ token savings.
+  - name: flycrawl_crawl
+    description: Recursively crawl multiple pages of a website with depth control and return structured Markdown.
+  - name: flycrawl_map
+    description: Instant domain discovery and sitemap extraction (maps all links on a domain in under 2 seconds).
+  - name: flycrawl_search
+    description: Perform a live web search and automatically scrape the top search results into clean Markdown.
+  - name: flycrawl_extract
+    description: Extract typed JSON data from any webpage using a custom JSON schema and natural language prompt.
