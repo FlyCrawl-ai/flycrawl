@@ -1,9 +1,9 @@
 # Smithery Configuration for FlyCrawl MCP Server
-# https://smithery.ai/servers/ardekani-dev/flycrawl
+# https://smithery.ai/servers/FlyCrawl-ai/flycrawl
 
 name: flycrawl
 description: Sub-second Web-to-Fit-Markdown extraction, recursive website crawling, site mapping, and AI web data scraping for Claude Desktop, Cursor IDE, Windsurf, and AI Agents.
-version: 1.0.0
+version: 1.0.1
 homepage: https://flycrawl.net
 repository: https://github.com/FlyCrawl-ai/flycrawl
 license: MIT
@@ -27,12 +27,12 @@ startCommand:
 
 tools:
   - name: flycrawl_scrape
-    description: Extract clean, LLM-ready Fit-Markdown, JSON, or links from any webpage in sub-350ms with 90%+ token savings.
+    description: "Extract clean, LLM-ready Fit-Markdown, JSON, or links from any webpage with 90%+ token savings. Read-only, idempotent. Automatically renders dynamic JS & bypasses Cloudflare Turnstile. Costs 1 credit (0 credits if failed)."
   - name: flycrawl_crawl
-    description: Recursively crawl multiple pages of a website with depth control and return structured Markdown.
+    description: "Recursively crawl multiple pages of an entire website with depth control and return structured Markdown. Read-only. Renders dynamic JS. Costs 1 credit per crawled page (0 for failed)."
   - name: flycrawl_map
-    description: Instant domain discovery and sitemap extraction (maps all links on a domain in under 2 seconds).
+    description: "Instant domain discovery and sitemap extraction (maps all links on a domain in under 2 seconds). Read-only. Costs 1 credit."
   - name: flycrawl_search
-    description: Perform a live web search and automatically scrape the top search results into clean Markdown.
+    description: "Perform a live web search and automatically scrape the top search results into clean Markdown in 1 call. Fresh live index without search ads. Costs 1 credit."
   - name: flycrawl_extract
-    description: Extract typed JSON data from any webpage using a custom JSON schema and natural language prompt.
+    description: "Extract typed, structured JSON entities from any webpage using a custom JSON schema and natural language prompt. Read-only, idempotent. Headless JS execution. Costs 1 credit only on success (0 on fail). Returns error JSON with status code on failure."

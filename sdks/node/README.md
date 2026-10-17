@@ -1,15 +1,15 @@
-# ☕ FlyCrawl Node.js & TypeScript SDK (`@flycrawl/sdk`)
+# ☕ FlyCrawl Node.js & TypeScript SDK (`flycrawl`)
 
 Official Node.js and TypeScript client for [FlyCrawl](https://flycrawl.net) — the high-performance, anti-bot resilient web scraping & LLM markdown extraction engine.
 
 ## 📦 Installation
 
 ```bash
-npm install @flycrawl/sdk
+npm install flycrawl
 # or
-pnpm add @flycrawl/sdk
+pnpm add flycrawl
 # or
-yarn add @flycrawl/sdk
+yarn add flycrawl
 ```
 
 ## 🚀 Quickstart

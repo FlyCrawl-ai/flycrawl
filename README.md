@@ -14,11 +14,13 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-333333.svg?style=flat-square" alt="MIT License"></a>
+  <a href="https://www.npmjs.com/package/flycrawl"><img src="https://img.shields.io/npm/v/flycrawl.svg?style=flat-square&color=CB3837&logo=npm" alt="npm package"></a>
+  <a href="https://www.npmjs.com/package/flycrawl-mcp"><img src="https://img.shields.io/npm/v/flycrawl-mcp.svg?style=flat-square&color=CB3837&logo=npm" alt="npm mcp"></a>
+  <a href="https://flycrawl.net/mcp-web-scraper"><img src="https://img.shields.io/badge/TDQS_Certification-5%2F5_Stars-brightgreen?style=flat-square" alt="TDQS 5/5 Certified"></a>
   <a href="sdks/python"><img src="https://img.shields.io/badge/Python-3.9%2B-blue?style=flat-square&logo=python" alt="Python SDK"></a>
   <a href="sdks/node"><img src="https://img.shields.io/badge/TypeScript-5.0%2B-3178C6?style=flat-square&logo=typescript" alt="TypeScript SDK"></a>
   <a href="mcp-server"><img src="https://img.shields.io/badge/MCP-Ready-purple?style=flat-square" alt="MCP Protocol"></a>
   <a href="https://flycrawl.net"><img src="https://img.shields.io/badge/Anti--Bot%20Bypass-99.4%25-orange?style=flat-square" alt="Cloudflare Bypass"></a>
-  <a href="https://flycrawl.net"><img src="https://img.shields.io/badge/Latency-%3C_65ms-success?style=flat-square" alt="Latency"></a>
 </p>
 
 </div>
@@ -265,10 +267,57 @@ Add this to your `claude_desktop_config.json`:
 ```
 
 ### Supported MCP Tools:
-- `flycrawl_scrape`: Scrapes any URL and converts it to clean, concise markdown.
-- `flycrawl_crawl`: Initiates a multi-page crawl of docs or articles.
-- `flycrawl_search`: Searches the web for fresh data and extracts the top relevant pages.
+- `flycrawl_scrape`: Scrapes any URL and converts it to clean, concise Fit-Markdown (90%+ token reduction).
+- `flycrawl_crawl`: Initiates a multi-page depth traversal of docs or websites with domain boundary controls.
 - `flycrawl_map`: Maps out all reachable URLs in a domain under 2 seconds.
+- `flycrawl_search`: Searches the live web for fresh data and extracts top relevant pages in 1 atomic call.
+- `flycrawl_extract`: Extracts validated, typed JSON matching a natural language prompt or JSON Schema.
+
+---
+
+## 🛡️ Fair Billing Guarantee
+
+- **0 Credits Deducted on Failures**: If an upstream server returns `404 Not Found`, `403 Forbidden`, `500 Internal Error`, or times out, exactly **0 credits** are billed.
+- **Machine-Readable Errors**: Errors return standard structured JSON:
+  ```json
+  {
+    "isError": true,
+    "status": 504,
+    "error": "FlyCrawl Scrape Error [504]: Gateway Timeout",
+    "billed_credits": 0,
+    "retryable": true
+  }
+  ```
+- **Transparent Caching**: Cached URL requests (`maxAge`) return instantaneously and consume **0 credits**.
+
+---
+
+## 🔬 Reproducible Benchmark Methodology
+
+To ensure absolute transparency and reproducible performance metrics, our benchmarks are executed under standard laboratory conditions:
+
+- **Benchmark Dataset**: 50 representative domains across three distinct tiers:
+  1. *E-Commerce & High-Dynamic SPAs*: Amazon, Shopify, Airbnb, dynamic Next.js storefronts.
+  2. *Heavy Anti-Bot Protected Sites*: Cloudflare Turnstile, DataDome, Akamai edge challenges.
+  3. *Technical Documentation*: Stripe Docs, GitHub Docs, RFC specifications, Wikipedia.
+- **Hardware & Network Environment**:
+  - FlyCrawl Dedicated Edge Node: AWS `c6i.4xlarge` (16 vCPU, 32 GB RAM, 12.5 Gbps network interface).
+  - Test Region: AWS Frankfurt (`eu-central-1`) & AWS Virginia (`us-east-1`).
+- **Token Metrics Calculation**:
+  - Measured with OpenAI's canonical `tiktoken` tokenizer (`cl100k_base` / GPT-4o encoding).
+  - Fit-Markdown strips structural DOM noise, inline styles, navigation links, and tracking scripts while preserving 100% of the core article text, headings, code snippets, and tables.
+
+---
+
+## 🏢 Enterprise On-Premise & Kubernetes Self-Hosting
+
+Need complete data sovereignty and zero external cloud egress? FlyCrawl is available as a private cluster deployment:
+
+- **Kubernetes Helm Charts & Docker Compose**: Run FlyCrawl within your private AWS VPC, GCP project, Azure VNet, or air-gapped bare-metal datacenter.
+- **Internal Network Crawling**: Crawl internal enterprise wikis (Confluence, Notion, SharePoint) behind corporate VPNs and firewalls.
+- **Custom Residential Proxy Connectors**: Connect your existing BrightData, Oxylabs, or custom proxy pools.
+- Contact: [enterprise@flycrawl.net](mailto:enterprise@flycrawl.net) or visit [flycrawl.net/pricing](https://flycrawl.net/pricing).
+
 
 ---
 

@@ -1,6 +1,6 @@
 {
-  "name": "@flycrawl/mcp-server",
-  "version": "1.0.0",
+  "name": "flycrawl-mcp",
+  "version": "1.0.1",
   "description": "Model Context Protocol (MCP) server for FlyCrawl - Live web scraping and crawling for Claude Desktop & Cursor",
   "bin": {
     "flycrawl-mcp": "./dist/index.js"

@@ -1,6 +1,6 @@
 {
-  "name": "@flycrawl/sdk",
-  "version": "1.0.0",
+  "name": "flycrawl",
+  "version": "1.0.1",
   "description": "Official Node.js & TypeScript SDK for FlyCrawl - High-Performance Web Scraping for AI",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
